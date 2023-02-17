@@ -60,14 +60,14 @@ public class Main {
     }
 
     void uploadReport(StockReportBulkRequest report) {
-        String payload = "";
         try {
-            payload = objectMapper.writeValueAsString(report);
+            String payload = objectMapper.writeValueAsString(report);
+            System.out.println("payload === " +payload);
+            gcsBucketClient.save(report.getReportId(),  payload);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("unable to save to gcs bucket==="+ e.getMessage());
         }
-        System.out.println("payload === " +payload);
-        gcsBucketClient.save(report.getReportId(),  payload);
+
     }
 
     List<StockReportRequest> getUpdatedItems(String oldReportId) {

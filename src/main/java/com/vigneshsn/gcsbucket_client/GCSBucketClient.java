@@ -16,12 +16,12 @@ import java.nio.charset.Charset;
 
 @Component
 public class GCSBucketClient {
-    public static final String PROJECT_ID = "corded-streamer-377516";
+    public static final String PROJECT_ID = "<YOUR_PROJECT_ID>";
     private final Storage storage;
     private Bucket bucket;
 
     private final String bucketName = "stock-reports-16022023";
-    private final String serviceCredentialsFile = "gcp-test-sa.json";
+    private final String serviceCredentialsFile = "<SERVICE_CREDENTIAL_FILE_NAME>";
 
     public GCSBucketClient()  {
         Resource resource = new ClassPathResource(serviceCredentialsFile);
