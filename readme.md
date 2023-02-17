@@ -5,11 +5,11 @@ Deploy function app
 ```
 gcloud functions deploy gcp-demo-function \
 --gen2 \
---region=us-central1 \
+--region=<REGION> \
 --runtime=java17 \
 --source=. \
---entry-point=com.vigneshsn.Main \
---project=corded-streamer-377516 \
+--entry-point=<MAIN_CLASS_FILE \
+--project=<YOUR_PROJECT_ID> \
 --trigger-http
 ```
 
@@ -19,9 +19,9 @@ Function app with spring adapter
 gcloud alpha functions deploy gcp-demo-function \
 --entry-point org.springframework.cloud.function.adapter.gcp.GcfJarLauncher \
 --gen2 \
---region=us-central1 \
+--region=<REGION> \
 --runtime=java17 \
 --source target/deploy \
---project=corded-streamer-377516 \
+--project=<YOUR_PROJECT_ID> \
 --trigger-http
 ```
